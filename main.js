@@ -55,12 +55,9 @@ function odkliknutiPole() {
             console.log("Chyba switch, hracNaTahu!!!");
             break;
     }
-    
-
     zmenaHrace();
-    
+    console.log("test");
 }
-
 
 function kontrolaOdpovedi(otazka) {
     let spravnaOdpoved = "1";
