@@ -1,8 +1,11 @@
+import data from "/data.json" assert {type : "json"};
 
 let hraciPole = document.querySelectorAll("div");
 let obsahPoliHracihoPole = document.querySelectorAll("div p");
 
 let hracNaTahu = -1;   // (1 - ORANGE) || (-1 - BLUE)
+
+let cisloOtazky = 0;
 
 start();
 
@@ -30,9 +33,9 @@ function pridaniListeneru() {
 }
 
 function odkliknutiPole() {
-    let otazka = "TODO: nejsou otázky...";
+    let otazka = data[cisloOtazky].otazka;
     document.querySelector(".otazka").textContent = otazka;
-    let spravnaOdpoved = "1";
+    let spravnaOdpoved = data[cisloOtazky].odpoved;
 
 //    zacitOdpocet();
 //    let pauzicka = setTimeout(kontrolaOdpovedi, 1000);
@@ -60,13 +63,14 @@ function odkliknutiPole() {
 }
 
 function kontrolaOdpovedi(otazka) {
-    let spravnaOdpoved = "1";
+    let spravnaOdpoved = data[cisloOtazky].odpoved;
     // if (document.querySelector(".odpoved") == spravnaOdpoved) {
     if (prompt(otazka) == spravnaOdpoved) {
         return hracNaTahu;
     } else {
         return 0;
     }
+    cisloOtazky++;
 }
 
 function zmenaHrace() {
