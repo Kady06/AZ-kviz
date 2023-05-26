@@ -41,6 +41,7 @@ function odkliknutiPole() {
 //    let pauzicka = setTimeout(kontrolaOdpovedi, 1000);
     
     let odpoved = kontrolaOdpovedi(otazka);
+    cisloOtazky++;
 
     switch (odpoved) {
         case 1:
@@ -70,7 +71,6 @@ function kontrolaOdpovedi(otazka) {
     } else {
         return 0;
     }
-    cisloOtazky++;
 }
 
 function zmenaHrace() {
