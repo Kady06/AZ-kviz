@@ -1,4 +1,4 @@
-import data from "/data.json" assert {type : "json"};
+import data from "/dataAZ.json" assert {type : "json"};
 
 let hraciPole = document.querySelectorAll("div");
 let obsahPoliHracihoPole = document.querySelectorAll("div p");
