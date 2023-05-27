@@ -28,14 +28,15 @@ div p {
 }
 
 .aktivniSekce {
+    position: absolute;
     display: flex;
     flex-direction: column;
-    margin-top: 50px;
-    padding: 10px;
-    border: 2px solid black;
-    width: 90vw;
     align-items: center;
     justify-content: center;
+    background-color: gray;
+    width: 100vw;
+    height: 15vh;
+    top: 75vh;
 }
 .aktivniSekce h1 {
     padding: 0;
@@ -43,12 +44,12 @@ div p {
 }
 .aktivniSekce input[type="text"] {
     width: 50vw;
-    height: 35px;
+    height: 55px;
 }
 .aktivniSekce input[type="submit"] {
-    height: 50px;
-    font-size: 1.5em;
-    width: 10vw;
+    height: 60px;
+    font-size: 2em;
+    width: 25vw;
 }
 
 .specialka {

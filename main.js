@@ -7,6 +7,7 @@ let hracNaTahu = -1;   // (1 - ORANGE) || (-1 - BLUE)
 
 let cisloOtazky = 0;
 
+
 start();
 
 
@@ -15,6 +16,8 @@ function start() {
     nastaveniCiselPoli();
     pridaniListeneru();
     zmenaHrace();
+
+    nastaveniSystemuOdpovedi();
 }
 
 
@@ -88,4 +91,20 @@ function zmenaHrace() {
         default:
             break;
     }
+}
+
+function nastaveniSystemuOdpovedi() {
+    let aktivniSekce = document.querySelector(".aktivniSekce");
+    aktivniSekce.style.display = "flex";
+}
+
+let aktualniDatum = new Date().getTime();
+let konecneDatum = new Date().getTime() + 10000;
+
+
+document.querySelector(".test2").textContent = konecneDatum;
+
+while (aktualniDatum < konecneDatum) {
+    document.querySelector(".test1").textContent = (konecneDatum - aktualniDatum);
+    aktualniDatum = new Date().getTime();
 }
