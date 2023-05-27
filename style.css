@@ -45,6 +45,7 @@ div p {
 .aktivniSekce input[type="text"] {
     width: 50vw;
     height: 55px;
+    font-size: 2em;
 }
 .aktivniSekce input[type="submit"] {
     height: 60px;

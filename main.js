@@ -7,6 +7,8 @@ let hracNaTahu = -1;   // (1 - ORANGE) || (-1 - BLUE)
 
 let cisloOtazky = 0;
 
+let casNaOdpovedMILISEKUNDY = 15000; // čas na odpověď v milisekundách
+
 
 start();
 
@@ -18,7 +20,6 @@ function start() {
     zmenaHrace();
 
     nastaveniSystemuOdpovedi();
-    testCasovac();
 }
 
 
@@ -41,40 +42,76 @@ function odkliknutiPole() {
     document.querySelector(".otazka").textContent = otazka;
     let spravnaOdpoved = data[cisloOtazky].odpoved;
 
-//    zacitOdpocet();
-//    let pauzicka = setTimeout(kontrolaOdpovedi, 1000);
+    document.querySelector(".aktivniSekce").style.display = "flex";
+
+    let aktualniDatum = new Date().getTime();
+    let konecneDatum = new Date().getTime() + casNaOdpovedMILISEKUNDY;
+
+
+    setInterval(casovac, 10);
+    setTimeout(() => {
+        odpoved = kontrolaOdpovedi(otazka);
+    }, casNaOdpovedMILISEKUNDY);
+    setTimeout(() => {
+        console.log(odpoved);
+        switch (odpoved) {
+            case 1:
+                this.style.backgroundColor = "orange";
+                this.removeEventListener("click", odkliknutiPole);
+                break;
+            case -1:
+                this.style.backgroundColor = "blue";
+                this.removeEventListener("click", odkliknutiPole);
+                break;
+            case 0:
+                this.style.backgroundColor = "black";
+                break;    
+            default:
+                console.log("Chyba switch, hracNaTahu!!!");
+                break;
+        }
+        zmenaHrace();
+        console.log("test");
+    }, (casNaOdpovedMILISEKUNDY + 1000))
     
-    let odpoved = kontrolaOdpovedi(otazka);
+
+    function casovac() {
+        if ((konecneDatum - aktualniDatum) > 0) {
+            document.querySelector(".casovac").textContent = (konecneDatum - aktualniDatum);
+            aktualniDatum = (new Date().getTime());
+        } else {
+            document.querySelector(".casovac").textContent = "00:00";
+        }
+    }
+    let odpoved = "";
+
+
+    
+    
+    
     cisloOtazky++;
 
-    switch (odpoved) {
-        case 1:
-            this.style.backgroundColor = "orange";
-            this.removeEventListener("click", odkliknutiPole);
-            break;
-        case -1:
-            this.style.backgroundColor = "blue";
-            this.removeEventListener("click", odkliknutiPole);
-            break;
-        case 0:
-            this.style.backgroundColor = "black";
-            break;    
-        default:
-            console.log("Chyba switch, hracNaTahu!!!");
-            break;
+    function timeoutSpoust2(test) {
+        
     }
-    zmenaHrace();
-    console.log("test");
 }
 
 function kontrolaOdpovedi(otazka) {
+    let retunovaciPomoc = 0;
     let spravnaOdpoved = data[cisloOtazky].odpoved;
-    // if (document.querySelector(".odpoved") == spravnaOdpoved) {
-    if (prompt(otazka) == spravnaOdpoved) {
-        return hracNaTahu;
-    } else {
-        return 0;
+
+
+
+    switch (document.querySelector(".odpoved").textContent) {
+        case spravnaOdpoved:
+            retunovaciPomoc = hracNaTahu;
+            break;
+        default:
+            break;
     }
+
+    return retunovaciPomoc;
+    
 }
 
 function zmenaHrace() {
@@ -96,36 +133,10 @@ function zmenaHrace() {
 
 function nastaveniSystemuOdpovedi() {
     let aktivniSekce = document.querySelector(".aktivniSekce");
-    aktivniSekce.style.display = "flex";
+    aktivniSekce.style.display = "none";
 }
 
-function testCasovac() {
-    
-    let aktualniDatum = new Date().getTime();
-    let konecneDatum = new Date().getTime() + 10000;
 
-
-    document.querySelector(".test2").textContent = konecneDatum;
-
-    // while (aktualniDatum < konecneDatum) {
-    //     document.querySelector(".test1").textContent = (konecneDatum - aktualniDatum);
-    //     aktualniDatum = new Date().getTime();
-
-    //     console.log(konecneDatum - aktualniDatum);
-    // }
-
-    for (let i = 0; i < 99999; i++) {
-        document.querySelector(".test1").textContent = (konecneDatum - aktualniDatum);
-        aktualniDatum = new Date().getTime();
-        
-    }
-
-    while ((konecneDatum - aktualniDatum) >= 0) {
-
-        document.querySelector(".test1").textContent = (konecneDatum - aktualniDatum);
-        aktualniDatum = new Date().getTime();
-
-    }
-
-
+function kozoleTest() {
+    console.log("test funkce");
 }
