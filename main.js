@@ -18,6 +18,7 @@ function start() {
     zmenaHrace();
 
     nastaveniSystemuOdpovedi();
+    testCasovac();
 }
 
 
@@ -98,21 +99,26 @@ function nastaveniSystemuOdpovedi() {
     aktivniSekce.style.display = "flex";
 }
 
-let aktualniDatum = new Date().getTime();
-let konecneDatum = new Date().getTime() + 10000;
-
-
-document.querySelector(".test2").textContent = konecneDatum;
-
-// while (aktualniDatum < konecneDatum) {
-//     document.querySelector(".test1").textContent = (konecneDatum - aktualniDatum);
-//     aktualniDatum = new Date().getTime();
-
-//     console.log(konecneDatum - aktualniDatum);
-// }
-
-for (let i = 0; i < 10; i++) {
-    document.querySelector(".test1").textContent = (konecneDatum - aktualniDatum);
-
+function testCasovac() {
     
+    let aktualniDatum = new Date().getTime();
+    let konecneDatum = new Date().getTime() + 10000;
+
+
+    document.querySelector(".test2").textContent = konecneDatum;
+
+    // while (aktualniDatum < konecneDatum) {
+    //     document.querySelector(".test1").textContent = (konecneDatum - aktualniDatum);
+    //     aktualniDatum = new Date().getTime();
+
+    //     console.log(konecneDatum - aktualniDatum);
+    // }
+
+    for (let i = 0; i < 1000; i++) {
+        document.querySelector(".test1").textContent = (konecneDatum - aktualniDatum);
+        aktualniDatum = new Date().getTime();
+        
+    }
+
+
 }
