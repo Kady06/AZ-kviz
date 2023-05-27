@@ -110,3 +110,9 @@ document.querySelector(".test2").textContent = konecneDatum;
 
 //     console.log(konecneDatum - aktualniDatum);
 // }
+
+for (let i = 0; i < 10; i++) {
+    document.querySelector(".test1").textContent = (konecneDatum - aktualniDatum);
+
+    
+}
