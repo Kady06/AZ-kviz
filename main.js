@@ -114,10 +114,17 @@ function testCasovac() {
     //     console.log(konecneDatum - aktualniDatum);
     // }
 
-    for (let i = 0; i < 1000; i++) {
+    for (let i = 0; i < 99999; i++) {
         document.querySelector(".test1").textContent = (konecneDatum - aktualniDatum);
         aktualniDatum = new Date().getTime();
         
+    }
+
+    while ((konecneDatum - aktualniDatum) >= 0) {
+
+        document.querySelector(".test1").textContent = (konecneDatum - aktualniDatum);
+        aktualniDatum = new Date().getTime();
+
     }
 
 
