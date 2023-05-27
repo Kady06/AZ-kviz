@@ -104,7 +104,9 @@ let konecneDatum = new Date().getTime() + 10000;
 
 document.querySelector(".test2").textContent = konecneDatum;
 
-while (aktualniDatum < konecneDatum) {
-    document.querySelector(".test1").textContent = (konecneDatum - aktualniDatum);
-    aktualniDatum = new Date().getTime();
-}
+// while (aktualniDatum < konecneDatum) {
+//     document.querySelector(".test1").textContent = (konecneDatum - aktualniDatum);
+//     aktualniDatum = new Date().getTime();
+
+//     console.log(konecneDatum - aktualniDatum);
+// }
