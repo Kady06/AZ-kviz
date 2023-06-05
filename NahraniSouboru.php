@@ -36,13 +36,17 @@
 
         // Zkontrolujte, zda soubor již existuje
         if (file_exists($targetFile)) {
-            echo "Omlouváme se, ale soubor již existuje.";
-            $uploadOk = 0;
+            if (unlink($filePath)) {
+                echo "<h1>Stará verze byla úspěšně smazána</h1>";
+            } else {
+                echo "<h1>Chyba při mazání souboru.</h1>";
+                $uploadOk = 0;
+            }
         }
 
         // Zkontrolujte velikost souboru
         if ($_FILES["fileToUpload"]["size"] > 500000) {
-            echo "Omlouváme se, ale soubor je příliš velký.";
+            echo "<h1>Omlouváme se, ale soubor je příliš velký.</h1>";
             $uploadOk = 0;
         }
 
