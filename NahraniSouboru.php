@@ -36,7 +36,7 @@
 
         // Zkontrolujte, zda soubor již existuje
         if (file_exists($targetFile)) {
-            if (unlink($filePath)) {
+            if (unlink($targetFile)) {
                 echo "<h1>Stará verze byla úspěšně smazána</h1>";
             } else {
                 echo "<h1>Chyba při mazání souboru.</h1>";
