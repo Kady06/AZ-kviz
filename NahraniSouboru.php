@@ -52,22 +52,21 @@
 
         // Povolte určité formáty souborů
         if (
-            $imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
-            && $imageFileType != "gif"
+            $imageFileType != "json"
         ) {
-            echo "Omlouváme se, ale povoleny jsou pouze JPG, JPEG, PNG a GIF soubory.";
+            echo "<h1>Sorry, tohle není json soubor.</h1>";
             $uploadOk = 0;
         }
 
         // Zkontrolujte, zda byla proměnná $ uploadOk nastavena na 0 kvůli chybě
         if ($uploadOk == 0) {
-            echo "Omlouváme se, soubor nebyl nahrán.";
+            echo "<h1>Sorry, soubor se nenahrál</h1>";
         // Všechno je v pořádku, pokuste se nahrát soubor
         } else {
             if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $targetFile)) {
-                echo "Soubor " . htmlspecialchars(basename($_FILES["fileToUpload"]["name"])) . " byl úspěšně nahrán.";
+                echo "<h1>Soubor " . htmlspecialchars(basename($_FILES["fileToUpload"]["name"])) . " byl úspěšně nahrán.</h1>";
             } else {
-                echo "Omlouváme se, došlo k chybě při nahrávání souboru.";
+                echo "<h1>Omlouváme se, došlo k chybě při nahrávání souboru.</h1>";
             }
         }
     }
