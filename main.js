@@ -1,7 +1,7 @@
-// import data from "https://jankarlik.cz/AZ-Kviz/json/dataAZ.json" assert {type : "json"};
+ import data from "https://jankarlik.cz/AZ-Kviz/json/dataAZ.json" assert {type : "json"};
 // ↑ Na Stránkách
 // ↓ Develop na PC
-import data from "/json/dataAZ.json" assert {type : "json"};
+// import data from "/json/dataAZ.json" assert {type : "json"};
 
 let hraciPole = document.querySelectorAll("div");
 let obsahPoliHracihoPole = document.querySelectorAll("div p");
@@ -60,7 +60,7 @@ function odkliknutiPole() {
         clearInterval(odpocet);
         let retunovaciPomoc = 0;
         let spravnaOdpoved = data[cisloOtazky].odpoved;
-        console.log(spravnaOdpoved);
+        
 
         if (document.querySelector(".odpoved").value == spravnaOdpoved) {
             retunovaciPomoc = hracNaTahu;
@@ -94,6 +94,8 @@ function odkliknutiPole() {
         }
         zmenaHrace();
         cisloOtazky++;
+        console.log(spravnaOdpoved);
+        document.querySelector(".spravnaOdpoved").textContent = spravnaOdpoved;
         console.log("test");
     }, (casNaOdpovedMILISEKUNDY + 2000))
     
