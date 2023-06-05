@@ -59,22 +59,10 @@ function odkliknutiPole() {
     setTimeout(() => {
         clearInterval(odpocet);
         let retunovaciPomoc = 0;
-        let spravnaOdpoved = data[cisloOtazky].odpoved;
-        
-
-        if (document.querySelector(".odpoved").value == spravnaOdpoved) {
-            retunovaciPomoc = hracNaTahu;
+        if (document.querySelector(".odpoved").value == 1) {
+            retunovaciPomoc = hracNaTahu
         }
-    
-        // switch (document.querySelector(".odpoved").value) {
-        //     case spravnaOdpoved:
-        //         retunovaciPomoc = hracNaTahu;
-        //         break;
-        //     default:
-        //         break;
-        // }
 
-        console.log("Ty víš - Kady");
         console.log(retunovaciPomoc);
         switch (retunovaciPomoc) {
             case 1:
@@ -94,8 +82,6 @@ function odkliknutiPole() {
         }
         zmenaHrace();
         cisloOtazky++;
-        console.log(spravnaOdpoved);
-        document.querySelector(".spravnaOdpoved").textContent = spravnaOdpoved;
         console.log("test");
     }, (casNaOdpovedMILISEKUNDY + 800))
     
