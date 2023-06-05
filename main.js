@@ -10,7 +10,7 @@ let hracNaTahu = -1;   // (1 - ORANGE) || (-1 - BLUE)
 
 let cisloOtazky = 0;
 
-let casNaOdpovedMILISEKUNDY = 15000; // čas na odpověď v milisekundách
+let casNaOdpovedMILISEKUNDY = 10000; // čas na odpověď v milisekundách
 
 
 start();
@@ -51,13 +51,32 @@ function odkliknutiPole() {
     let konecneDatum = new Date().getTime() + casNaOdpovedMILISEKUNDY;
 
 
-    setInterval(casovac, 10);
+    let odpocet = setInterval(casovac, 10);
+    // setTimeout(() => {
+    //     odpoved = kontrolaOdpovedi(otazka);
+    //     clearInterval(odpocet);
+    // }, (casNaOdpovedMILISEKUNDY + 500));
     setTimeout(() => {
-        odpoved = kontrolaOdpovedi(otazka);
-    }, casNaOdpovedMILISEKUNDY);
-    setTimeout(() => {
-        console.log(odpoved);
-        switch (odpoved) {
+        clearInterval(odpocet);
+        let retunovaciPomoc = 0;
+        let spravnaOdpoved = data[cisloOtazky].odpoved;
+        console.log(spravnaOdpoved);
+
+        if (document.querySelector(".odpoved").value == spravnaOdpoved) {
+            retunovaciPomoc = hracNaTahu;
+        }
+    
+        // switch (document.querySelector(".odpoved").value) {
+        //     case spravnaOdpoved:
+        //         retunovaciPomoc = hracNaTahu;
+        //         break;
+        //     default:
+        //         break;
+        // }
+
+        console.log("Ty víš - Kady");
+        console.log(retunovaciPomoc);
+        switch (retunovaciPomoc) {
             case 1:
                 this.style.backgroundColor = "orange";
                 this.removeEventListener("click", odkliknutiPole);
@@ -74,8 +93,9 @@ function odkliknutiPole() {
                 break;
         }
         zmenaHrace();
+        cisloOtazky++;
         console.log("test");
-    }, (casNaOdpovedMILISEKUNDY + 1000))
+    }, (casNaOdpovedMILISEKUNDY + 2000))
     
 
     function casovac() {
@@ -84,19 +104,17 @@ function odkliknutiPole() {
             aktualniDatum = (new Date().getTime());
         } else {
             document.querySelector(".casovac").textContent = "00:00";
+            clearInterval(casovac);
         }
+        console.log(document.querySelector(".odpoved").value);
     }
-    let odpoved = "";
+    
 
 
     
     
     
-    cisloOtazky++;
-
-    function timeoutSpoust2(test) {
-        
-    }
+    
 }
 
 function kontrolaOdpovedi(otazka) {
@@ -105,7 +123,7 @@ function kontrolaOdpovedi(otazka) {
 
 
 
-    switch (document.querySelector(".odpoved").textContent) {
+    switch (document.querySelector(".odpoved").value) {
         case spravnaOdpoved:
             retunovaciPomoc = hracNaTahu;
             break;
