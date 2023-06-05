@@ -23,16 +23,17 @@
         $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
 
         // Zkontrolujte, zda byl soubor skutečně odeslán
-        if (isset($_POST["submit"])) {
-            $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
-            if ($check !== false) {
-                echo "Soubor je obrázek - " . $check["mime"] . ".";
-                $uploadOk = 1;
-            } else {
-                echo "Soubor není obrázek.";
-                $uploadOk = 0;
-            }
-        }
+
+        // if (isset($_POST["submit"])) {
+        //     $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
+        //     if ($check !== false) {
+        //         echo "Soubor je obrázek - " . $check["mime"] . ".";
+        //         $uploadOk = 1;
+        //     } else {
+        //         echo "Soubor není obrázek.";
+        //         $uploadOk = 0;
+        //     }
+        // }
 
         // Zkontrolujte, zda soubor již existuje
         if (file_exists($targetFile)) {
