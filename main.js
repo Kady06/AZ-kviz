@@ -1,4 +1,7 @@
-import data from "json/dataAZ.json" assert {type : "json"};
+// import data from "https://jankarlik.cz/AZ-Kviz/json/dataAZ.json" assert {type : "json"};
+// ↑ Na Stránkách
+// ↓ Develop na PC
+import data from "/json/dataAZ.json" assert {type : "json"};
 
 let hraciPole = document.querySelectorAll("div");
 let obsahPoliHracihoPole = document.querySelectorAll("div p");
