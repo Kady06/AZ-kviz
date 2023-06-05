@@ -10,7 +10,7 @@ let hracNaTahu = -1;   // (1 - ORANGE) || (-1 - BLUE)
 
 let cisloOtazky = 0;
 
-let casNaOdpovedMILISEKUNDY = 10000; // čas na odpověď v milisekundách
+let casNaOdpovedMILISEKUNDY = 20000; // čas na odpověď v milisekundách
 
 
 start();
@@ -97,7 +97,7 @@ function odkliknutiPole() {
         console.log(spravnaOdpoved);
         document.querySelector(".spravnaOdpoved").textContent = spravnaOdpoved;
         console.log("test");
-    }, (casNaOdpovedMILISEKUNDY + 2000))
+    }, (casNaOdpovedMILISEKUNDY + 800))
     
 
     function casovac() {
