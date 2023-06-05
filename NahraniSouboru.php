@@ -17,7 +17,7 @@
 <?php
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-        $targetDirectory = "./AZ-Kviz/json/";
+        $targetDirectory = "json/";
         $targetFile = $targetDirectory . basename($_FILES["fileToUpload"]["name"]);
         $uploadOk = 1;
         $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
