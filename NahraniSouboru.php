@@ -39,7 +39,7 @@
         }
 
         // Zkontrolujte velikost souboru
-        if ($_FILES["fileToUpload"]["size"] > 500000) {
+        if ($_FILES["fileToUpload"]["size"] > 500000000) {
             echo "<h1>Omlouváme se, ale soubor je příliš velký.</h1>";
             $uploadOk = 0;
         }
