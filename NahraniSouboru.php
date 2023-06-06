@@ -58,7 +58,7 @@
 
         // Povolte určité formáty souborů
         if (
-            $fileType != "json"
+            $fileType != "json" && $fileType != "zip"
         ) {
             echo "<h1>Sorry, tohle není json soubor.</h1>";
             $uploadOk = 0;
