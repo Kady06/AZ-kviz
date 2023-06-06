@@ -25,7 +25,7 @@
         $targetDirectory = "json/";
         $targetFile = $targetDirectory . basename($_FILES["fileToUpload"]["name"]);
         $uploadOk = 1;
-        $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
+        $fileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
 
         // Zkontrolujte, zda byl soubor skutečně odeslán
 
@@ -58,7 +58,7 @@
 
         // Povolte určité formáty souborů
         if (
-            $imageFileType != "json"
+            $fileType != "json"
         ) {
             echo "<h1>Sorry, tohle není json soubor.</h1>";
             $uploadOk = 0;
