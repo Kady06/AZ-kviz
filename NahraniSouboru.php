@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nahrání souboru</title>
+    <title>Kady || Nahrání souboru</title>
     <link rel="stylesheet" href="styleNahraniSouboru.css">
 </head>
 <body>
@@ -27,20 +27,8 @@
         $uploadOk = 1;
         $fileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
 
-        // Zkontrolujte, zda byl soubor skutečně odeslán
 
-        // if (isset($_POST["submit"])) {
-        //     $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
-        //     if ($check !== false) {
-        //         echo "Soubor je obrázek - " . $check["mime"] . ".";
-        //         $uploadOk = 1;
-        //     } else {
-        //         echo "Soubor není obrázek.";
-        //         $uploadOk = 0;
-        //     }
-        // }
-
-        // Zkontrolujte, zda soubor již existuje
+        // Zkontrolujte, zda soubor již existuje a smaže starý soubor
         if (file_exists($targetFile)) {
             if (unlink($targetFile)) {
                 echo "<h1>Stará verze byla úspěšně smazána</h1>";
@@ -60,7 +48,7 @@
         if (
             $fileType != "json" && $fileType != "zip"
         ) {
-            echo "<h1>Sorry, tohle není json soubor.</h1>";
+            echo "<h1>Sorry, tohle není json/zip soubor.</h1>";
             $uploadOk = 0;
         }
 
