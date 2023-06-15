@@ -1,4 +1,5 @@
  import data from "https://jankarlik.cz/AZ-Kviz/json/dataAZ.json" assert {type : "json"};
+ import dataCerna from "https://jankarlik.cz/AZ-Kviz/json/dataAZcerna.json" assert {type : "json"};
 // ↑ Na Stránkách
 // ↓ Develop na PC
 // import data from "/json/dataAZ.json" assert {type : "json"};
@@ -9,6 +10,9 @@ let obsahPoliHracihoPole = document.querySelectorAll("div p");
 let hracNaTahu = -1;   // (1 - ORANGE) || (-1 - BLUE)
 
 let cisloOtazky = 0;
+let cisloOtazkyCerne = 0;
+
+let rozliseniCerneOtazky = -1;  // 1 = černá || -1 = barevná
 
 let casNaOdpovedMILISEKUNDY = 20000; // čas na odpověď v milisekundách
 
@@ -41,9 +45,19 @@ function pridaniListeneru() {
 }
 
 function odkliknutiPole() {
-    let otazka = data[cisloOtazky].otazka;
+    let otazka = "";
+    let spravnaOdpoved = "";
+    if (this.style.backgroundColor == "black") {
+        otazka = dataCerna[cisloOtazkyCerne].otazka;
+        spravnaOdpoved = dataCerna[cisloOtazkyCerne].odpoved;
+        rozliseniCerneOtazky = 1;
+    } else {
+        otazka = data[cisloOtazky].otazka;
+        spravnaOdpoved = data[cisloOtazky].odpoved;
+        rozliseniCerneOtazky = -1;
+    }
     document.querySelector(".otazka").textContent = otazka;
-    let spravnaOdpoved = data[cisloOtazky].odpoved;
+    
 
     document.querySelector(".aktivniSekce").style.display = "flex";
 
@@ -81,7 +95,12 @@ function odkliknutiPole() {
                 break;
         }
         zmenaHrace();
-        cisloOtazky++;
+        if (rozliseniCerneOtazky == 1) {
+            cisloOtazkyCerne++;
+        }
+        if (rozliseniCerneOtazky == -1) {
+            cisloOtazky++;
+        }
         console.log("test");
     }, (casNaOdpovedMILISEKUNDY + 800))
     
