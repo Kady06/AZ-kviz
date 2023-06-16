@@ -14,7 +14,7 @@ let cisloOtazkyCerne = 0;
 
 let rozliseniCerneOtazky = -1;  // 1 = černá || -1 = barevná
 
-let casNaOdpovedMILISEKUNDY = 20000; // čas na odpověď v milisekundách
+let casNaOdpovedMILISEKUNDY = 13000; // čas na odpověď v milisekundách
 
 
 start();
