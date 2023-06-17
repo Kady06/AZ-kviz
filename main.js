@@ -72,7 +72,7 @@ function odkliknutiPole() {
     //     odpoved = kontrolaOdpovedi(otazka);
     //     clearInterval(odpocet);
     // }, (casNaOdpovedMILISEKUNDY + 500));
-    setTimeout(snadBudeFungovat, (casNaOdpovedMILISEKUNDY + 800))
+    let timeoutik = setTimeout(snadBudeFungovat, (casNaOdpovedMILISEKUNDY + 800))
     
 
     function casovac() {
@@ -84,6 +84,10 @@ function odkliknutiPole() {
             clearInterval(casovac);
         }
         console.log(document.querySelector(".odpoved").value);
+        if (document.querySelector(".odpoved").value == 1) {
+            clearTimeout(timeoutik);
+            snadBudeFungovat();
+        }
     }
 
     function snadBudeFungovat() {
