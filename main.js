@@ -16,6 +16,7 @@ let rozliseniCerneOtazky = -1;  // 1 = černá || -1 = barevná
 
 let casNaOdpovedMILISEKUNDY = 13000; // čas na odpověď v milisekundách
 
+let konkretniPolicko = "";
 
 start();
 
@@ -45,9 +46,10 @@ function pridaniListeneru() {
 }
 
 function odkliknutiPole() {
+    konkretniPolicko = this;
     let otazka = "";
     let spravnaOdpoved = "";
-    if (this.style.backgroundColor == "black") {
+    if (konkretniPolicko.style.backgroundColor == "black") {
         otazka = dataCerna[cisloOtazkyCerne].otazka;
         spravnaOdpoved = dataCerna[cisloOtazkyCerne].odpoved;
         rozliseniCerneOtazky = 1;
@@ -70,7 +72,21 @@ function odkliknutiPole() {
     //     odpoved = kontrolaOdpovedi(otazka);
     //     clearInterval(odpocet);
     // }, (casNaOdpovedMILISEKUNDY + 500));
-    setTimeout(() => {
+    setTimeout(snadBudeFungovat, (casNaOdpovedMILISEKUNDY + 800))
+    
+
+    function casovac() {
+        if ((konecneDatum - aktualniDatum) > 0) {
+            document.querySelector(".casovac").textContent = (konecneDatum - aktualniDatum);
+            aktualniDatum = (new Date().getTime());
+        } else {
+            document.querySelector(".casovac").textContent = "00:00";
+            clearInterval(casovac);
+        }
+        console.log(document.querySelector(".odpoved").value);
+    }
+
+    function snadBudeFungovat() {
         clearInterval(odpocet);
         let retunovaciPomoc = 0;
         if (document.querySelector(".odpoved").value == 1) {
@@ -80,15 +96,15 @@ function odkliknutiPole() {
         console.log(retunovaciPomoc);
         switch (retunovaciPomoc) {
             case 1:
-                this.style.backgroundColor = "orange";
-                this.removeEventListener("click", odkliknutiPole);
+                konkretniPolicko.style.backgroundColor = "orange";
+                konkretniPolicko.removeEventListener("click", odkliknutiPole);
                 break;
             case -1:
-                this.style.backgroundColor = "blue";
-                this.removeEventListener("click", odkliknutiPole);
+                konkretniPolicko.style.backgroundColor = "blue";
+                konkretniPolicko.removeEventListener("click", odkliknutiPole);
                 break;
             case 0:
-                this.style.backgroundColor = "black";
+                konkretniPolicko.style.backgroundColor = "black";
                 break;    
             default:
                 console.log("Chyba switch, hracNaTahu!!!");
@@ -102,25 +118,7 @@ function odkliknutiPole() {
             cisloOtazky++;
         }
         console.log("test");
-    }, (casNaOdpovedMILISEKUNDY + 800))
-    
-
-    function casovac() {
-        if ((konecneDatum - aktualniDatum) > 0) {
-            document.querySelector(".casovac").textContent = (konecneDatum - aktualniDatum);
-            aktualniDatum = (new Date().getTime());
-        } else {
-            document.querySelector(".casovac").textContent = "00:00";
-            clearInterval(casovac);
-        }
-        console.log(document.querySelector(".odpoved").value);
-    }
-    
-
-
-    
-    
-    
+    }    
     
 }
 
