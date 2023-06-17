@@ -124,6 +124,7 @@ function odkliknutiPole() {
             cisloOtazky++;
         }
         console.log("test");
+        document.querySelector(".odpoved").value = "";
     }    
     
 }
