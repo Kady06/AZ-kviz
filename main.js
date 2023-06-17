@@ -14,7 +14,9 @@ let cisloOtazkyCerne = 0;
 
 let rozliseniCerneOtazky = -1;  // 1 = černá || -1 = barevná
 
-let casNaOdpovedMILISEKUNDY = prompt("Před kliknutím na nové pole, musí být políčko s odpovědí prázdné!! (mělo by se samo mazat, snad), Zde zadej v ms, jak dlouhý čas chceš na odpověď!!!", "13000");; // čas na odpověď v milisekundách
+let pomocnicek = prompt("Před kliknutím na nové pole, musí být políčko s odpovědí prázdné!! (mělo by se samo mazat, snad), Zde zadej v ms, jak dlouhý čas chceš na odpověď!!!", "13000");
+let casNaOdpovedMILISEKUNDY = pomocnicek++ // čas na odpověď v milisekundách
+console.log(casNaOdpovedMILISEKUNDY);
 
 let konkretniPolicko = "";
 
