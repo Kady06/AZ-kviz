@@ -1,5 +1,5 @@
- import data from "https://jankarlik.cz/AZ-Kviz/json/dataAZ.json" assert {type : "json"};
- import dataCerna from "https://jankarlik.cz/AZ-Kviz/json/dataAZcerna.json" assert {type : "json"};
+import data from "https://jankarlik.cz/AZ-Kviz/json/dataAZ.json" assert {type : "json"};
+import dataCerna from "https://jankarlik.cz/AZ-Kviz/json/dataAZcerna.json" assert {type : "json"};
 // ↑ Na Stránkách
 // ↓ Develop na PC
 // import data from "/json/dataAZ.json" assert {type : "json"};
@@ -28,6 +28,8 @@ function start() {
     zmenaHrace();
 
     nastaveniSystemuOdpovedi();
+
+    varovaniPredHrou();
 }
 
 
@@ -167,6 +169,6 @@ function nastaveniSystemuOdpovedi() {
 }
 
 
-function kozoleTest() {
-    console.log("test funkce");
+function varovaniPredHrou() {
+    let neco = prompt("Před kliknutím na nové pole, musí být políčko s odpovědí prázdné!!", "Souhlasím");
 }
