@@ -14,7 +14,7 @@ let cisloOtazkyCerne = 0;
 
 let rozliseniCerneOtazky = -1;  // 1 = černá || -1 = barevná
 
-let casNaOdpovedMILISEKUNDY = 13000; // čas na odpověď v milisekundách
+let casNaOdpovedMILISEKUNDY = prompt("Před kliknutím na nové pole, musí být políčko s odpovědí prázdné!! (mělo by se samo mazat, snad), Zde zadej v ms, jak dlouhý čas chceš na odpověď!!!", "13000");; // čas na odpověď v milisekundách
 
 let konkretniPolicko = "";
 
@@ -28,8 +28,6 @@ function start() {
     zmenaHrace();
 
     nastaveniSystemuOdpovedi();
-
-    varovaniPredHrou();
 }
 
 
@@ -147,9 +145,4 @@ function zmenaHrace() {
 function nastaveniSystemuOdpovedi() {
     let aktivniSekce = document.querySelector(".aktivniSekce");
     aktivniSekce.style.display = "none";
-}
-
-
-function varovaniPredHrou() {
-    let neco = prompt("Před kliknutím na nové pole, musí být políčko s odpovědí prázdné!!", "Souhlasím");
 }
