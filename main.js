@@ -70,10 +70,7 @@ function odkliknutiPole() {
 
 
     let odpocet = setInterval(casovac, 10);
-    // setTimeout(() => {
-    //     odpoved = kontrolaOdpovedi(otazka);
-    //     clearInterval(odpocet);
-    // }, (casNaOdpovedMILISEKUNDY + 500));
+
     let timeoutik = setTimeout(snadBudeFungovat, (casNaOdpovedMILISEKUNDY + 800))
     
 
@@ -129,23 +126,6 @@ function odkliknutiPole() {
     
 }
 
-function kontrolaOdpovedi(otazka) {
-    let retunovaciPomoc = 0;
-    let spravnaOdpoved = data[cisloOtazky].odpoved;
-
-
-
-    switch (document.querySelector(".odpoved").value) {
-        case spravnaOdpoved:
-            retunovaciPomoc = hracNaTahu;
-            break;
-        default:
-            break;
-    }
-
-    return retunovaciPomoc;
-    
-}
 
 function zmenaHrace() {
     hracNaTahu = hracNaTahu*(-1);
