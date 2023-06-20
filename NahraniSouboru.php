@@ -13,6 +13,7 @@
     <h1>Nahrát soubor</h1>
     <h1>Soubor pro AZ-Kvíz se musí jmenovat: <strong style="color: red">"dataAZ.json"</strong></h1>
     <a href="json/dataAZ.json">Zobrazit nahraný soubor. Prostě si to zkopiruj potom LOL.</a>
+    <a href="json/dataAZcerna.json">Zobrazit černý nahraný soubor. Prostě si to zkopiruj potom LOL.</a>
     <form action="" method="post" enctype="multipart/form-data">
         <input type="file" name="fileToUpload" id="fileToUpload">
         <input type="submit" value="Nahrát soubor" name="submit">
